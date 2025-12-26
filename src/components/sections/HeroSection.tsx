@@ -37,7 +37,7 @@ export const HeroSection = () => {
           </div>
 
           <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted-foreground md:text-base">
-            <span className="pill text-sm">Avionics Engineering · AAUB · Jr. Product Designer</span>
+            <span className="pill text-sm">Avionics Engineering  ·  AAUB  ·  Jr. Product Designer</span>
             <span className="pill text-sm">Available for product design &amp; front-end collaborations</span>
           </div>
         </div>

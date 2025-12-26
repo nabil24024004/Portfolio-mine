@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system: all semantic colors, typography, gradients and effects live here. */
+
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 222 47% 4%; /* deep charcoal */
+    --foreground: 210 40% 96%;
+
+    --card: 222 40% 6%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 5%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Brand - switched to orange accent like reference */
+    --primary: 18 90% 58%; /* vivid orange */
+    --primary-foreground: 222 47% 4%;
+
+    --secondary: 222 26% 14%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 222 22% 10%;
+    --muted-foreground: 215 15% 68%;
+
+    --accent: 18 90% 58%;
+    --accent-foreground: 222 47% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 268 83% 64%;
+
+    --radius: 0.9rem;
+
+    /* Sidebar (kept semantic for shadcn sidebar if used) */
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 268 83% 64%;
+    --sidebar-primary-foreground: 222 47% 4%;
+    --sidebar-accent: 222 32% 12%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 32% 16%;
+    --sidebar-ring: 268 83% 64%;
+
+    /* Custom tokens */
+    --hero-gradient: 240 40% 4%;
+    --hero-gradient-soft: 268 83% 12%;
+    --surface-elevated: 222 40% 10%;
+    --surface-subtle: 222 32% 8%;
+
+    --shadow-soft: 0 35px 120px -45px;
+    --shadow-strong: 0 42px 120px -40px;
+
+    --glow-primary: 18 90% 58%;
+    --glow-accent: 25 95% 62%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+
+  main {
+    @apply bg-background;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-16 md:px-10 md:py-20 lg:px-12 lg:py-24;
+  }
+
+  .section-shell-wide {
+    @apply mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-16 md:px-10 md:py-20 lg:px-12 lg:py-24;
+  }
+
+  .section-kicker {
+    @apply mb-2 text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold md:text-4xl;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur;
+  }
+
+  .story-link {
+    @apply relative inline-flex items-center text-xs font-medium text-muted-foreground hover:text-foreground;
+  }
+}

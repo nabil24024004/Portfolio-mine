@@ -26,11 +26,6 @@ export const AboutSection = () => {
               expressive, human-centered design.
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
-              From circuits and microcontrollers to UI systems and design languages, I enjoy translating complex systems
-              into calm, intuitive digital products. Every interface is treated like an engineered system reliable,
-              efficient, and purposefully crafted.
-            </p>
-            <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
               I focus on building experiences that feel precise yet warm: minimal, legible layouts supported by thoughtful
               motion, clear hierarchy, and just enough personality.
             </p>

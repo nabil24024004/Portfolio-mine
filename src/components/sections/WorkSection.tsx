@@ -49,7 +49,7 @@ export const WorkSection = () => {
         <div className="max-w-xl space-y-3">
           <p className="section-kicker">05 Selected Work</p>
           <h2 className="section-title text-3xl md:text-[2.4rem]">
-            PeerHire AAUB — freelancing, reimagined for campus.
+            PeerHire AAUB: freelancing, reimagined for campus.
           </h2>
           <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
             PeerHire AAUB is a university-exclusive freelancing platform that connects students for academic assistance.

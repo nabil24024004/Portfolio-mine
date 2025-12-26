@@ -87,7 +87,7 @@ export const PageShell = ({ children }: PageShellProps) => {
                 onClick={() => scrollToSection("top")}
                 className={cn(
                   "rounded-full px-4 py-1.5 transition-colors hover:text-primary",
-                  activeSection === "top" && "bg-primary/30 text-primary-foreground",
+                  activeSection === "top" && "bg-primary/30 text-white",
                 )}
               >
                 Home
@@ -97,7 +97,7 @@ export const PageShell = ({ children }: PageShellProps) => {
                 onClick={() => scrollToSection("services")}
                 className={cn(
                   "rounded-full px-4 py-1.5 transition-colors hover:text-primary",
-                  activeSection === "services" && "bg-primary/30 text-primary-foreground",
+                  activeSection === "services" && "bg-primary/30 text-white",
                 )}
               >
                 Services
@@ -107,7 +107,7 @@ export const PageShell = ({ children }: PageShellProps) => {
                 onClick={() => scrollToSection("work")}
                 className={cn(
                   "rounded-full px-4 py-1.5 transition-colors hover:text-primary",
-                  activeSection === "work" && "bg-primary/30 text-primary-foreground",
+                  activeSection === "work" && "bg-primary/30 text-white",
                 )}
               >
                 Work
@@ -117,7 +117,7 @@ export const PageShell = ({ children }: PageShellProps) => {
                 onClick={() => scrollToSection("contact")}
                 className={cn(
                   "rounded-full px-4 py-1.5 transition-colors hover:text-primary",
-                  activeSection === "contact" && "bg-primary/30 text-primary-foreground",
+                  activeSection === "contact" && "bg-primary/30 text-white",
                 )}
               >
                 Contact

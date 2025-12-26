@@ -11,7 +11,7 @@ export const HeroSection = () => {
     <div className="pointer-events-none absolute -left-24 top-10 h-64 w-64 rounded-full bg-accent/25 blur-3xl" />
     <div className="pointer-events-none absolute -right-10 bottom-0 h-72 w-72 rounded-full bg-primary/25 blur-3xl" />
 
-    <div className="section-shell-wide">
+    <div className="section-shell-wide pt-8 md:pt-10 lg:pt-12">
       <div className="grid items-center gap-10 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <div className="space-y-7 animate-fade-in">
           <p className="section-kicker">UI/UX · Product Design · Web Development</p>

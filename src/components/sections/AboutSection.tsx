@@ -27,7 +27,7 @@ export const AboutSection = () => {
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
               From circuits and microcontrollers to UI systems and design languages, I enjoy translating complex systems
-              into calm, intuitive digital products. Every interface is treated like an engineered system — reliable,
+              into calm, intuitive digital products. Every interface is treated like an engineered system reliable,
               efficient, and purposefully crafted.
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground md:text-base">

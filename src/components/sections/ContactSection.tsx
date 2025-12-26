@@ -1,9 +1,16 @@
-import { Github, Linkedin, Mail, Phone, Palette } from "lucide-react";
+import { useRef, useState } from "react";
+import { Github, Linkedin, Mail, Phone, Palette, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { toast } from "sonner";
+
+const EMAILJS_SERVICE_ID = "service_4x5uwys";
+const EMAILJS_TEMPLATE_ID = "template_75yvb8n";
+const EMAILJS_PUBLIC_KEY = "eqksO_UByYnBbWaPv";
 
 const socials = [
   {
@@ -35,6 +42,38 @@ const socials = [
 
 export const ContactSection = () => {
   const { ref, isVisible } = useScrollReveal();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!formRef.current) return;
+
+    setIsLoading(true);
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast.success("Message sent successfully!", {
+        description: "I'll get back to you as soon as possible.",
+      });
+
+      formRef.current.reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast.error("Failed to send message", {
+        description: "Please try again or email me directly.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section id="contact" className="relative border-t border-border/70 bg-secondary/40">
@@ -76,25 +115,37 @@ export const ContactSection = () => {
           </div>
 
           <form
+            ref={formRef}
             className="relative space-y-4 rounded-3xl border border-primary/40 bg-gradient-to-br from-background/70 via-background/45 to-background/70 p-5 shadow-[0_24px_60px_-30px_hsl(var(--primary)/0.7)] backdrop-blur-2xl md:p-6 lg:p-7 animate-enter"
-            onSubmit={(event) => {
-              event.preventDefault();
-            }}
+            onSubmit={handleSubmit}
           >
             <div className="pointer-events-none absolute inset-x-6 bottom-10 h-28 rounded-full bg-primary/25 blur-3xl" />
 
             <div className="relative grid gap-3 md:grid-cols-2">
               <div>
-                <label className="text-xs font-medium text-muted-foreground" htmlFor="name">
+                <label className="text-xs font-medium text-muted-foreground" htmlFor="user_name">
                   Name
                 </label>
-                <Input id="name" placeholder="Your name" className="mt-1" />
+                <Input
+                  id="user_name"
+                  name="user_name"
+                  placeholder="Your name"
+                  className="mt-1"
+                  required
+                />
               </div>
               <div>
-                <label className="text-xs font-medium text-muted-foreground" htmlFor="email">
+                <label className="text-xs font-medium text-muted-foreground" htmlFor="user_email">
                   Email
                 </label>
-                <Input id="email" type="email" placeholder="you@email.com" className="mt-1" />
+                <Input
+                  id="user_email"
+                  name="user_email"
+                  type="email"
+                  placeholder="you@email.com"
+                  className="mt-1"
+                  required
+                />
               </div>
             </div>
             <div className="relative">
@@ -103,9 +154,11 @@ export const ContactSection = () => {
               </label>
               <Textarea
                 id="message"
+                name="message"
                 rows={4}
-                placeholder="Share a bit about what you&apos;d like to build."
+                placeholder="Share a bit about what you'd like to build."
                 className="mt-1"
+                required
               />
             </div>
             <div className="relative pt-1">
@@ -114,12 +167,20 @@ export const ContactSection = () => {
                 variant="hero"
                 size="lg"
                 className="w-full px-8 py-3 text-sm uppercase tracking-[0.18em] md:w-auto md:text-base"
+                disabled={isLoading}
               >
-                Send message
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send message"
+                )}
               </Button>
             </div>
             <p className="relative text-[0.7rem] leading-relaxed text-muted-foreground md:text-xs">
-              This form is a visual prototype. You can reach me directly at
+              Your message will be sent directly to my inbox at
               <span className="font-mono"> azwadabrar109@gmail.com</span>.
             </p>
           </form>

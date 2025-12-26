@@ -24,7 +24,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
           href={to}
           className={cn(className)}
           onClick={handleClick}
-          {...(props as any)}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         />
       );
     }

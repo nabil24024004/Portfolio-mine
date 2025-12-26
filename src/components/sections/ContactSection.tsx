@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { toast } from "sonner";
 
-const EMAILJS_SERVICE_ID = "service_4x5uwys";
-const EMAILJS_TEMPLATE_ID = "template_75yvb8n";
-const EMAILJS_PUBLIC_KEY = "eqksO_UByYnBbWaPv";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const socials = [
   {

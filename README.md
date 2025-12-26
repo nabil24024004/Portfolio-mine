@@ -1,6 +1,6 @@
 <div align="center">
 
-# ✨ Sheikh Azwad Abrar — Portfolio
+#  Sheikh Azwad Abrar
 
 **A modern, dark-themed portfolio showcasing UI/UX design, product design, and web development.**
 
